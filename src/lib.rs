@@ -1,5 +1,5 @@
-#![feature(plugin)]
-#![plugin(clippy)]
+#![cfg_attr(lint, feature(plugin))]
+#![cfg_attr(lint, plugin(clippy))]
 #![allow(dead_code)]
 #![deny(missing_docs,
         missing_debug_implementations, missing_copy_implementations,
@@ -10,6 +10,7 @@
 //! for non-numeric data types such as: `Strings`, `Images` and `Audio`.
 extern crate image as image_lib;
 extern crate murmurhash3 as murmur3;
+extern crate collenchyma as co;
 
 pub use image::Image;
 pub use word::Word;
@@ -28,11 +29,4 @@ pub mod word;
 pub mod modifier {
     extern crate modifier as modifier_lib;
     pub use self::modifier_lib::*;
-}
-
-/// Re-exports from the Phloem crate.
-pub mod blob {
-    extern crate phloem;
-    pub use self::phloem::Blob;
-    pub use self::phloem::Numeric;
 }

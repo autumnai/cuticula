@@ -1,20 +1,28 @@
-use blob::Blob;
+use co::backend::{Backend, BackendConfig};
+use co::framework::IFramework;
+use co::frameworks::Native;
+use co::memory::MemoryType;
+use co::tensor::SharedTensor;
 
 /// The Transformer Trait
 ///
 /// Gets implemented for all Transformable Data Types.
-/// Allows all Transformable Data Types to get transformed into a `Blob`.
+/// Allows all Transformable Data Types to get transformed into a `SharedTensor`
 pub trait Transformer {
 
-    /// Transforms non-numeric data into a numeric `Blob`
+    /// Transforms non-numeric data into a numeric `SharedTensor`
     ///
-    /// The shape attribute is used to controll the dimensions/shape of the Blob.
-    /// It returns an Error, when the expected capacity (defined by the shape) differs, from the
+    /// The shape attribute is used to controll the dimensions/shape of the SharedTensor.
+    /// It returns an Error, when the expected capacity (defined by the shape) differs from the
     /// observed one.
-    fn transform(&self, shape: Vec<usize>) -> Result<Box<Blob<f32>>, TransformerError> {
-        let mut blob = Box::new(Blob::of_shape(shape));
-        match self.write_into_blob_data(blob.mutable_cpu_data()) {
-            Ok(_) => Ok(blob),
+    fn transform(&self, shape: Vec<usize>) -> Result<SharedTensor<f32>, TransformerError> {
+        let framework = Native::new();
+        let hardwares = framework.hardwares();
+        let backend_config = BackendConfig::new(framework, hardwares);
+        let backend = Backend::new(backend_config).unwrap();
+        let mut tensor = SharedTensor::<f32>::new(backend.device(), &shape).unwrap();
+        match self.write_into_tensor(tensor.get_mut(backend.device()).unwrap()) {
+            Ok(_) => Ok(tensor),
             Err(e) => Err(e)
         }
     }
@@ -22,16 +30,23 @@ pub trait Transformer {
     /// Transforms the non-numeric data into a numeric `Vec`
     fn transform_to_vec(&self) -> Vec<f32>;
 
-    /// Writes into `Blob`s' data
-    fn write_into_blob_data(&self, blob_data: &mut Vec<f32>) -> Result<(), TransformerError> {
-        let data = Box::new(self.transform_to_vec());
-        if blob_data.capacity() == data.capacity() {
-            for v in data.iter() {
-                blob_data.push(*v);
-            }
-            Ok(())
-        } else {
-            Err(TransformerError::InvalidShape)
+    /// Writes into `SharedTensor`s' data
+    fn write_into_tensor(&self, mem: &mut MemoryType) -> Result<(), TransformerError> {
+        let data = self.transform_to_vec();
+        match mem {
+            &mut MemoryType::Native(ref mut mem) => {
+                if mem.byte_size() / 4 == data.capacity() {
+                    let mut mem_buffer = mem.as_mut_slice::<f32>();
+                    for (index, datum) in data.iter().enumerate() {
+                        mem_buffer[index] = *datum;
+                    }
+                    Ok(())
+                } else {
+                    Err(TransformerError::InvalidShape)
+                }
+            },
+            #[cfg(any(feature = "cuda", feature = "opencl"))]
+            _ => panic!()
         }
     }
 }

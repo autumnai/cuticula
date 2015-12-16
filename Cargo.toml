@@ -12,12 +12,21 @@ keywords = ["preprocessing", "data-preprocessing", "transformation", "encoding",
 license = "MIT"
 
 [dependencies]
-phloem = "0.2.4"
+collenchyma = { version = "0.0.6", default-features = false }
+
 image = "0.4.0"
 murmurhash3 = "0.0.5"
 modifier = "0.1"
-clippy = "0.0.23"
+
+clippy = { version = "0.0.27", optional = true }
 
 [features]
-default = []
-dev = [] # possibly for clippy
+default = ["native", "cuda", "opencl"]
+native = ["collenchyma/native"]
+cuda = ["collenchyma/cuda"]
+opencl = ["collenchyma/opencl"]
+
+dev = []
+unstable = [] # for travis-cargo
+travis = ["native"]
+lint = ["clippy"]

@@ -1,12 +1,23 @@
+extern crate collenchyma as co;
 extern crate cuticula;
 
 #[cfg(test)]
 mod transformer_spec {
+    use co::backend::{Backend, BackendConfig};
+    use co::framework::IFramework;
+    use co::frameworks::Native;
 
     use cuticula::{Set, Transformer, Image};
     use cuticula::image::{Crop};
     use cuticula::transformer::TransformerError;
     use std::path::Path;
+
+    fn native_backend() -> Backend<Native> {
+        let framework = Native::new();
+        let hardwares = framework.hardwares();
+        let backend_config = BackendConfig::new(framework, hardwares);
+        Backend::new(backend_config).unwrap()
+    }
 
     fn expected_result() -> Vec<f32> {
         vec![255.0, 255.0, 255.0, 255.0, 255.0, 255.0, 255.0, 255.0, 255.0, 0.0, 0.0, 0.0]
@@ -27,9 +38,10 @@ mod transformer_spec {
         let path = Path::new("tests/assets/test_image.png");
         let img = Image::from_path(&path);
         match img.transform(vec![2, 2, 3]) {
-            Ok(blob) => {
-                let blob_data = blob.cpu_data();
-                assert_eq!(expected_result(), *blob_data);
+            Ok(mut blob) => {
+                let native = native_backend();
+                let blob_data = blob.get_mut(native.device()).unwrap().as_mut_native().unwrap().as_mut_slice::<f32>();
+                assert_eq!(expected_result(), blob_data);
             },
             _ => assert!(false)
         }
@@ -41,10 +53,11 @@ mod transformer_spec {
         let img = Image::from_path(&path);
         for i in 0..2 {
             match img.transform(vec![2, 2, 3]) {
-                Ok(blob) => {
-                    let blob_data = blob.cpu_data();
+                Ok(mut blob) => {
+                    let native = native_backend();
+                    let blob_data = blob.get_mut(native.device()).unwrap().as_mut_native().unwrap().as_mut_slice::<f32>();
                     if i > 1 {
-                        assert_eq!(expected_result(), *blob_data);
+                        assert_eq!(expected_result(), blob_data);
                     }
                 },
                 _ => assert!(false)
