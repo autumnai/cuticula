@@ -2,7 +2,7 @@
 name = "cuticula"
 description = "Data Preprocessing library for Machine Learning"
 authors = ["Michael Hirn <mj@autumnai.com>"]
-version = "0.1.4"
+version = "0.1.5"
 repository = "https://github.com/autumnai/cuticula"
 homepage = "https://github.com/autumnai/cuticula"
 documentation = "http://autumnai.github.io/cuticula"
@@ -16,8 +16,8 @@ phloem = "0.2.4"
 image = "0.4.0"
 murmurhash3 = "0.0.5"
 modifier = "0.1"
-clippy = "0.0.23"
+clippy = {version = "0.0.33", optional = true}
 
 [features]
 default = []
-dev = [] # possibly for clippy
+dev = ["clippy"] 
