@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Size2D",""]],"type":[["TypedSize2D",""]]});

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Size2D` struct in crate `euclid`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Size2D">
+
+    <title>euclid::size::Size2D - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>euclid</a>::<wbr><a href='index.html'>size</a></p><script>window.sidebarCurrent = {name: 'Size2D', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>euclid</a>::<wbr><a href='index.html'>size</a>::<wbr><a class='struct' href=''>Size2D</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1446' class='srclink' href='../../src/euclid/size.rs.html#19-22' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Size2D&lt;T&gt; {
+    pub width: T,
+    pub height: T,
+}</pre><h2 class='fields'>Fields</h2>
+<table><tr class='stab '>
+                             <td id='structfield.width'><code>width</code></td><td></td></tr><tr class='stab '>
+                             <td id='structfield.height'><code>height</code></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(width: T, height: T) -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;T, Output=U&gt;, U&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.area' class='method'><code>fn <a href='#method.area' class='fnname'>area</a>(&amp;self) -&gt; U</code></h4>
+</div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='../../euclid/num/trait.Zero.html' title='euclid::num::Zero'>Zero</a>&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.zero' class='method'><code>fn <a href='#method.zero' class='fnname'>zero</a>() -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Unit, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;<a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;Unit, T&gt;&gt;</code></h3><div class='impl-items'><h4 id='method.typed' class='method'><code>fn <a href='#method.typed' class='fnname'>typed</a>(width: T, height: T) -&gt; <a class='type' href='../../euclid/size/type.TypedSize2D.html' title='euclid::size::TypedSize2D'>TypedSize2D</a>&lt;Unit, T&gt;</code></h4>
+<h4 id='method.to_untyped' class='method'><code>fn <a href='#method.to_untyped' class='fnname'>to_untyped</a>(&amp;self) -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h4>
+<div class='docblock'><p>Drop the units, preserving only the numeric value.</p>
+</div><h4 id='method.from_untyped' class='method'><code>fn <a href='#method.from_untyped' class='fnname'>from_untyped</a>(p: &amp;<a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;) -&gt; <a class='type' href='../../euclid/size/type.TypedSize2D.html' title='euclid::size::TypedSize2D'>TypedSize2D</a>&lt;Unit, T&gt;</code></h4>
+<div class='docblock'><p>Tag a unitless value with units.</p>
+</div></div><h3 class='impl'><code>impl&lt;Unit, T0: <a class='trait' href='../../num_traits/cast/trait.NumCast.html' title='num_traits::cast::NumCast'>NumCast</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;<a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;Unit, T0&gt;&gt;</code></h3><div class='impl-items'><h4 id='method.cast' class='method'><code>fn <a href='#method.cast' class='fnname'>cast</a>&lt;T1: <a class='trait' href='../../num_traits/cast/trait.NumCast.html' title='num_traits::cast::NumCast'>NumCast</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt;(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;<a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;Unit, T1&gt;&gt;&gt;</code></h4>
+<div class='docblock'><p>Cast from one numeric representation to another, preserving the units.</p>
+</div></div><h3 class='impl'><code>impl&lt;Unit, T: <a class='trait' href='../../num_traits/cast/trait.NumCast.html' title='num_traits::cast::NumCast'>NumCast</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;<a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;Unit, T&gt;&gt;</code></h3><div class='impl-items'><h4 id='method.as_f32' class='method'><code>fn <a href='#method.as_f32' class='fnname'>as_f32</a>(&amp;self) -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;<a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;Unit, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>&gt;&gt;</code></h4>
+<h4 id='method.as_uint' class='method'><code>fn <a href='#method.as_uint' class='fnname'>as_uint</a>(&amp;self) -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;<a class='struct' href='../../euclid/length/struct.Length.html' title='euclid::length::Length'>Length</a>&lt;Unit, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt;&gt;</code></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.fmt-1' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, formatter: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='../../euclid/num/trait.Zero.html' title='euclid::num::Zero'>Zero</a>&gt; <a class='trait' href='../../euclid/num/trait.Zero.html' title='euclid::num::Zero'>Zero</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.zero-1' class='method'><code>fn <a href='../../euclid/num/trait.Zero.html#tymethod.zero' class='fnname'>zero</a>() -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Scale: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a>, T0: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;Scale, Output=T1&gt;, T1: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;Scale&gt; for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T0&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Output' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T1&gt;</code></h4>
+<h4 id='method.mul' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#tymethod.mul' class='fnname'>mul</a>(self, scale: Scale) -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T1&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Scale: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a>, T0: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html' title='core::ops::Div'>Div</a>&lt;Scale, Output=T1&gt;, T1: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html' title='core::ops::Div'>Div</a>&lt;Scale&gt; for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T0&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Output-1' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T1&gt;</code></h4>
+<h4 id='method.div' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html#tymethod.div' class='fnname'>div</a>(self, scale: Scale) -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T1&gt;</code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='../../rustc_serialize/serialize/trait.Encodable.html' title='rustc_serialize::serialize::Encodable'>Encodable</a>&gt; <a class='trait' href='../../rustc_serialize/serialize/trait.Encodable.html' title='rustc_serialize::serialize::Encodable'>Encodable</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.encode' class='method'><code>fn <a href='../../rustc_serialize/serialize/trait.Encodable.html#tymethod.encode' class='fnname'>encode</a>&lt;__ST: <a class='trait' href='../../rustc_serialize/serialize/trait.Encoder.html' title='rustc_serialize::serialize::Encoder'>Encoder</a>&gt;(&amp;self, __arg_0: &amp;mut __ST) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, __ST::Error&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='../../rustc_serialize/serialize/trait.Decodable.html' title='rustc_serialize::serialize::Decodable'>Decodable</a>&gt; <a class='trait' href='../../rustc_serialize/serialize/trait.Decodable.html' title='rustc_serialize::serialize::Decodable'>Decodable</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.decode' class='method'><code>fn <a href='../../rustc_serialize/serialize/trait.Decodable.html#tymethod.decode' class='fnname'>decode</a>&lt;__DT: <a class='trait' href='../../rustc_serialize/serialize/trait.Decoder.html' title='rustc_serialize::serialize::Decoder'>Decoder</a>&gt;(__arg_0: &amp;mut __DT) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;, __DT::Error&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'></div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'></div><h3 class='impl'><code>impl&lt;T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../euclid/size/struct.Size2D.html' title='euclid::size::Size2D'>Size2D</a>&lt;T&gt;</code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "euclid";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

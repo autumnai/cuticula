@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Image` struct in crate `cuticula`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Image">
+
+    <title>cuticula::image::Image - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>cuticula</a>::<wbr><a href='index.html'>image</a></p><script>window.sidebarCurrent = {name: 'Image', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>cuticula</a>::<wbr><a href='index.html'>image</a>::<wbr><a class='struct' href=''>Image</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-137' class='srclink' href='../../src/cuticula/src/image/mod.rs.html#12-14' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Image {
+    // some fields omitted
+}</pre><div class='docblock'><p>The Transformable Data Type <code>Image</code></p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a></code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(image: <a class='enum' href='../../cuticula/image_crate/enum.DynamicImage.html' title='cuticula::image_crate::DynamicImage'>DynamicImage</a>) -&gt; <a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a></code></h4>
+<div class='docblock'><p>Create a new Image from a DynamicImage</p>
+</div><h4 id='method.from_path' class='method'><code>fn <a href='#method.from_path' class='fnname'>from_path</a>&lt;P&gt;(path: P) -&gt; <a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a> <span class='where'>where P: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;</span></code></h4>
+<div class='docblock'><p>Create a new Image from a Path</p>
+</div><h4 id='method.from_buffer' class='method'><code>fn <a href='#method.from_buffer' class='fnname'>from_buffer</a>(buf: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a></code></h4>
+<div class='docblock'><p>Create a new Image from Buffer</p>
+</div><h4 id='method.from_rgb_pixels' class='method'><code>fn <a href='#method.from_rgb_pixels' class='fnname'>from_rgb_pixels</a>(w: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, h: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, buf: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a>, <a class='enum' href='../../cuticula/transformer/enum.TransformerError.html' title='cuticula::transformer::TransformerError'>TransformerError</a>&gt;</code></h4>
+<div class='docblock'><p>Create a new Image from RGB style pixel container such as <code>Vec</code></p>
+</div><h4 id='method.from_rgba_pixels' class='method'><code>fn <a href='#method.from_rgba_pixels' class='fnname'>from_rgba_pixels</a>(w: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, h: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, buf: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a>, <a class='enum' href='../../cuticula/transformer/enum.TransformerError.html' title='cuticula::transformer::TransformerError'>TransformerError</a>&gt;</code></h4>
+<div class='docblock'><p>Create a new Image from RGBa style pixel container such as <code>Vec</code></p>
+</div><h4 id='method.from_luma_pixels' class='method'><code>fn <a href='#method.from_luma_pixels' class='fnname'>from_luma_pixels</a>(w: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, h: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, buf: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a>, <a class='enum' href='../../cuticula/transformer/enum.TransformerError.html' title='cuticula::transformer::TransformerError'>TransformerError</a>&gt;</code></h4>
+<div class='docblock'><p>Create a new Image from Luma (greyscale) style pixel container such as <code>Vec</code></p>
+</div><h4 id='method.from_lumaa_pixels' class='method'><code>fn <a href='#method.from_lumaa_pixels' class='fnname'>from_lumaa_pixels</a>(w: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, h: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, buf: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a>, <a class='enum' href='../../cuticula/transformer/enum.TransformerError.html' title='cuticula::transformer::TransformerError'>TransformerError</a>&gt;</code></h4>
+<div class='docblock'><p>Create a new Image from LumaA style pixel container such as <code>Vec</code></p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../../cuticula/trait.Set.html' title='cuticula::Set'>Set</a> for <a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a></code></h3><div class='impl-items'><h4 id='method.set' class='method'><code>fn <a href='../../cuticula/trait.Set.html#method.set' class='fnname'>set</a>&lt;M&gt;(self, modifier: M) -&gt; Self <span class='where'>where M: <a class='trait' href='../../modifier/trait.Modifier.html' title='modifier::Modifier'>Modifier</a>&lt;Self&gt;</span></code></h4>
+<h4 id='method.set_mut' class='method'><code>fn <a href='../../cuticula/trait.Set.html#method.set_mut' class='fnname'>set_mut</a>&lt;M&gt;(&amp;mut self, modifier: M) -&gt; &amp;mut Self <span class='where'>where M: <a class='trait' href='../../modifier/trait.Modifier.html' title='modifier::Modifier'>Modifier</a>&lt;Self&gt;</span></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='../../cuticula/transformer/trait.Transformer.html' title='cuticula::transformer::Transformer'>Transformer</a> for <a class='struct' href='../../cuticula/image/struct.Image.html' title='cuticula::image::Image'>Image</a></code></h3><div class='impl-items'><h4 id='method.transform_to_vec' class='method'><code>fn <a href='../../cuticula/transformer/trait.Transformer.html#tymethod.transform_to_vec' class='fnname'>transform_to_vec</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>&gt;</code></h4>
+<h4 id='method.transform' class='method'><code>fn <a href='../../cuticula/transformer/trait.Transformer.html#method.transform' class='fnname'>transform</a>(&amp;self, shape: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../collenchyma/tensor/struct.SharedTensor.html' title='collenchyma::tensor::SharedTensor'>SharedTensor</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f32.html'>f32</a>&gt;, <a class='enum' href='../../cuticula/transformer/enum.TransformerError.html' title='cuticula::transformer::TransformerError'>TransformerError</a>&gt;</code></h4>
+<h4 id='method.write_to_memory' class='method'><code>fn <a href='../../cuticula/transformer/trait.Transformer.html#method.write_to_memory' class='fnname'>write_to_memory</a>&lt;T: <a class='trait' href='../../num_traits/cast/trait.NumCast.html' title='num_traits::cast::NumCast'>NumCast</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a>&gt;(mem: &amp;mut <a class='enum' href='../../collenchyma/memory/enum.MemoryType.html' title='collenchyma::memory::MemoryType'>MemoryType</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a>T<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../cuticula/transformer/enum.TransformerError.html' title='cuticula::transformer::TransformerError'>TransformerError</a>&gt;</code></h4>
+<h4 id='method.write_to_memory_offset' class='method'><code>fn <a href='../../cuticula/transformer/trait.Transformer.html#method.write_to_memory_offset' class='fnname'>write_to_memory_offset</a>&lt;T: <a class='trait' href='../../num_traits/cast/trait.NumCast.html' title='num_traits::cast::NumCast'>NumCast</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a>&gt;(mem: &amp;mut <a class='enum' href='../../collenchyma/memory/enum.MemoryType.html' title='collenchyma::memory::MemoryType'>MemoryType</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a>T<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, offset: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../../cuticula/transformer/enum.TransformerError.html' title='cuticula::transformer::TransformerError'>TransformerError</a>&gt;</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "cuticula";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

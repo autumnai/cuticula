@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ScaleFactor` struct in crate `euclid`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ScaleFactor">
+
+    <title>euclid::scale_factor::ScaleFactor - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>euclid</a>::<wbr><a href='index.html'>scale_factor</a></p><script>window.sidebarCurrent = {name: 'ScaleFactor', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>euclid</a>::<wbr><a href='index.html'>scale_factor</a>::<wbr><a class='struct' href=''>ScaleFactor</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1235' class='srclink' href='../../src/euclid/scale_factor.rs.html#42' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ScaleFactor&lt;Src, Dst, T&gt;(pub T, _);</pre><div class='docblock'><p>A scaling factor between two different units of measurement.</p>
+
+<p>This is effectively a type-safe float, intended to be used in combination with other types like
+<code>length::Length</code> to enforce conversion between systems of measurement at compile time.</p>
+
+<p><code>Src</code> and <code>Dst</code> represent the units before and after multiplying a value by a ScaleFactor.  They
+may be types without values, such as empty enums.  For example:</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='ident'>euclid</span>::<span class='ident'>scale_factor</span>::<span class='ident'>ScaleFactor</span>;
+<span class='kw'>use</span> <span class='ident'>euclid</span>::<span class='ident'>length</span>::<span class='ident'>Length</span>;
+<span class='kw'>enum</span> <span class='ident'>Mm</span> {};
+<span class='kw'>enum</span> <span class='ident'>Inch</span> {};
+
+<span class='kw'>let</span> <span class='ident'>mm_per_inch</span>: <span class='ident'>ScaleFactor</span><span class='op'>&lt;</span><span class='ident'>Inch</span>, <span class='ident'>Mm</span>, <span class='ident'>f32</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>ScaleFactor</span>::<span class='ident'>new</span>(<span class='number'>25.4</span>);
+
+<span class='kw'>let</span> <span class='ident'>one_foot</span>: <span class='ident'>Length</span><span class='op'>&lt;</span><span class='ident'>Inch</span>, <span class='ident'>f32</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>Length</span>::<span class='ident'>new</span>(<span class='number'>12.0</span>);
+<span class='kw'>let</span> <span class='ident'>one_foot_in_mm</span>: <span class='ident'>Length</span><span class='op'>&lt;</span><span class='ident'>Mm</span>, <span class='ident'>f32</span><span class='op'>&gt;</span> <span class='op'>=</span> <span class='ident'>one_foot</span> <span class='op'>*</span> <span class='ident'>mm_per_inch</span>;</pre>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl&lt;Src, Dst, T&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='method.new' class='method'><code>fn <a href='#method.new' class='fnname'>new</a>(x: T) -&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Src, Dst, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='method.get' class='method'><code>fn <a href='#method.get' class='fnname'>get</a>(&amp;self) -&gt; T</code></h4>
+</div><h3 class='impl'><code>impl&lt;Src, Dst, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + <a class='trait' href='../../euclid/num/trait.One.html' title='euclid::num::One'>One</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html' title='core::ops::Div'>Div</a>&lt;T, Output=T&gt;&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='method.inv' class='method'><code>fn <a href='#method.inv' class='fnname'>inv</a>(&amp;self) -&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Dst, Src, T&gt;</code></h4>
+<div class='docblock'><p>The inverse ScaleFactor (1.0 / self).</p>
+</div></div><h3 class='impl'><code>impl&lt;Src, Dst, T0: <a class='trait' href='../../num_traits/cast/trait.NumCast.html' title='num_traits::cast::NumCast'>NumCast</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T0&gt;</code></h3><div class='impl-items'><h4 id='method.cast' class='method'><code>fn <a href='#method.cast' class='fnname'>cast</a>&lt;T1: <a class='trait' href='../../num_traits/cast/trait.NumCast.html' title='num_traits::cast::NumCast'>NumCast</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt;(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T1&gt;&gt;</code></h4>
+<div class='docblock'><p>Cast from one numeric representation to another, preserving the units.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl&lt;A, B, C, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;T, Output=T&gt;&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;<a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;B, C, T&gt;&gt; for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;A, B, T&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Output' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;A, C, T&gt;</code></h4>
+<h4 id='method.mul' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#tymethod.mul' class='fnname'>mul</a>(self, other: <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;B, C, T&gt;) -&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;A, C, T&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Src, Dst, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;T, Output=T&gt;&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a> for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Output-1' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h4>
+<h4 id='method.add' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#tymethod.add' class='fnname'>add</a>(self, other: <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;) -&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Src, Dst, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;T, Output=T&gt;&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a> for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='associatedtype.Output-2' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#associatedtype.Output' class='type'>Output</a> = <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h4>
+<h4 id='method.sub' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#tymethod.sub' class='fnname'>sub</a>(self, other: <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;) -&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Src, Dst, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, other: &amp;<a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;Src, Dst, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl&lt;Src: <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a>, Dst: <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a>, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;Src: <a class='trait' href='../../rustc_serialize/serialize/trait.Encodable.html' title='rustc_serialize::serialize::Encodable'>Encodable</a>, Dst: <a class='trait' href='../../rustc_serialize/serialize/trait.Encodable.html' title='rustc_serialize::serialize::Encodable'>Encodable</a>, T: <a class='trait' href='../../rustc_serialize/serialize/trait.Encodable.html' title='rustc_serialize::serialize::Encodable'>Encodable</a>&gt; <a class='trait' href='../../rustc_serialize/serialize/trait.Encodable.html' title='rustc_serialize::serialize::Encodable'>Encodable</a> for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='method.encode' class='method'><code>fn <a href='../../rustc_serialize/serialize/trait.Encodable.html#tymethod.encode' class='fnname'>encode</a>&lt;__SSrcDstT: <a class='trait' href='../../rustc_serialize/serialize/trait.Encoder.html' title='rustc_serialize::serialize::Encoder'>Encoder</a>&gt;(&amp;self, __arg_0: &amp;mut __SSrcDstT) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, __SSrcDstT::Error&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Src: <a class='trait' href='../../rustc_serialize/serialize/trait.Decodable.html' title='rustc_serialize::serialize::Decodable'>Decodable</a>, Dst: <a class='trait' href='../../rustc_serialize/serialize/trait.Decodable.html' title='rustc_serialize::serialize::Decodable'>Decodable</a>, T: <a class='trait' href='../../rustc_serialize/serialize/trait.Decodable.html' title='rustc_serialize::serialize::Decodable'>Decodable</a>&gt; <a class='trait' href='../../rustc_serialize/serialize/trait.Decodable.html' title='rustc_serialize::serialize::Decodable'>Decodable</a> for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'><h4 id='method.decode' class='method'><code>fn <a href='../../rustc_serialize/serialize/trait.Decodable.html#tymethod.decode' class='fnname'>decode</a>&lt;__DSrcDstT: <a class='trait' href='../../rustc_serialize/serialize/trait.Decoder.html' title='rustc_serialize::serialize::Decoder'>Decoder</a>&gt;(__arg_0: &amp;mut __DSrcDstT) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;, __DSrcDstT::Error&gt;</code></h4>
+</div><h3 class='impl'><code>impl&lt;Src: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a>, Dst: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a>, T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a>&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../euclid/scale_factor/struct.ScaleFactor.html' title='euclid::scale_factor::ScaleFactor'>ScaleFactor</a>&lt;Src, Dst, T&gt;</code></h3><div class='impl-items'></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "euclid";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

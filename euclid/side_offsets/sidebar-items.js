@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["SideOffsets2D","A group of side offsets, which correspond to top/left/bottom/right for borders, padding, and margins in CSS."]]});

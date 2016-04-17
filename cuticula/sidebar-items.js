@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["image","The Image Struct and its Modifiers"],["image_crate",""],["modifier","Re-exports from the modifier crate."],["transformer","Transformer"],["word","The Word Struct and its Modifiers"]],"trait":[["Set","A trait providing the set and set_mut methods for all types."]]});

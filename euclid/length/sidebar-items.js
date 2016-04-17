@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Length","A one-dimensional distance, with value represented by `T` and unit of measurement `Unit`."]]});
