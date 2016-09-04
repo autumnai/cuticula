@@ -9,17 +9,15 @@
         unsafe_code, unused_import_braces, unused_qualifications)]
 
 extern crate collenchyma as co;
-extern crate image as image_lib;
 extern crate murmurhash3 as murmur3;
+/// Re-export image crate.
+pub extern crate image as image_crate;
 
 pub use image::Image;
 pub use word::Word;
 pub use transformer::Transformer;
 
 pub use modifier::Set;
-
-/// Re-export image crate.
-pub use image_lib as image_crate;
 
 /// Transformer
 pub mod transformer;
